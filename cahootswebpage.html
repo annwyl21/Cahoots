@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <header>
+   <link href="style.css" type="text/css" rel="stylesheet">
+   <script>
+
+//the rules list
+let rules = [
+    'All cards even',
+    'All cards odd',
+    'Cards add up to 15',
+    'Cards add up to 7',
+    'Red cards add up to 10',
+    'All black cards',
+    'Black cards add up to 10',
+    'Cards sequence red\, black\, red\, black',
+    'Two numbers the same',
+    'All cards are Spades',
+    ];
+    
+// the code for picking 4 rules to play the game  
+let currentRule;
+shuffle();
+
+function shuffle() {
+
+    //repeat 100 times
+    let count = 0;
+    while (count!=100) {
+        count++;
+
+        //pick 2 random rules
+        let leftIndex = Math.floor(Math.random() * rules.length);
+        let rightIndex = Math.floor(Math.random() * rules.length);
+
+        //swap rules over
+        let leftRule = rules[leftIndex];
+        let rightRule = rules[rightIndex];
+        // console.log(String(leftIndex) + leftRule);
+        // console.log(String(rightIndex) + rightRule);
+        // console.log();
+        rules[leftIndex] = rightRule;
+        rules[rightIndex] = leftRule;
+    }
+}
+
+// then extract first 4 rules and show them
+let selectedRules = rules.splice(0, 4);
+function outputSelectedRules () {
+    document.getElementById("rule1").innerHTML = selectedRules[0];
+    document.getElementById("rule2").innerHTML = selectedRules[1];
+    document.getElementById("rule3").innerHTML = selectedRules[2];
+    document.getElementById("rule4").innerHTML = selectedRules[3];
+    console.log(selectedRules);
+}
+//outputSelectedRules();
+
+//select achieved rule
+
+let completedRules = [];
+
+// Prompt user to input data in console.
+console.log("Select achieved rule number");
+
+function ruleReplace (ruleNumber) {
+        // Print user input in console.
+        console.log('User Input Data : ' + ruleNumber);
+        //next rule chosen to replace completed rule
+        let nextRule = rules.shift();
+        completedRules.push(selectedRules.splice(ruleNumber, 1, nextRule));
+        
+        outputSelectedRules();
+        document.getElementById("score").innerHTML = "Your score is " + 
+        completedRules.length;
+    }
+</script>
+    </header>
+    <body>
+        <section>
+            Mum's Cahoots
+        </section>
+        <p>
+            This page was created as Mum's first coding project.  
+            <br>
+            It displays the game <strong>Cahoots</strong>.
+            <br>
+            Mum wrote the code herself, <em>with advice from Dad</em>.
+            <br>
+        </p>
+
+    <div id="score">
+        Welcome to Mum's Cahoots, Click on a rule when achieved
+    </div>
+    <div id="rule1" onclick="ruleReplace(0)">
+        <h6>
+            Insert rule 1
+    </div>
+    <div id="rule2" onclick="ruleReplace(1)">
+        <h6>
+            Insert rule 2
+        </h6>
+    </div>
+    <div id="rule3" onclick="ruleReplace(2)">
+        <h6>
+            Insert rule 3
+        </h6>
+    </div>
+    <div id="rule4" onclick="ruleReplace(3)">
+        <h6>
+            Insert rule 4
+        </h6>
+    </div>
+    </body>
+    <script>
+        outputSelectedRules();
+    </script>
+</html>
