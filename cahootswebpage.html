@@ -53,7 +53,8 @@ function outputSelectedRules () {
     document.getElementById("rule4").innerHTML = selectedRules[3];
     console.log(selectedRules);
 }
-//outputSelectedRules();
+
+
 
 //select achieved rule
 
@@ -66,12 +67,16 @@ function ruleReplace (ruleNumber) {
         // Print user input in console.
         console.log('User Input Data : ' + ruleNumber);
         //next rule chosen to replace completed rule
-        let nextRule = rules.shift();
-        completedRules.push(selectedRules.splice(ruleNumber, 1, nextRule));
+        if (rules.length === 0) {
+            alert("You win")
+        } else {
+            let nextRule = rules.shift();
+            completedRules.push(selectedRules.splice(ruleNumber, 1, nextRule));
         
-        outputSelectedRules();
-        document.getElementById("score").innerHTML = "Your score is " + 
-        completedRules.length;
+            outputSelectedRules();
+            document.getElementById("score").innerHTML = "Your score is " + 
+            completedRules.length;
+        }
     }
 </script>
     </header>
