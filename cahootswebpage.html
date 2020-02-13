@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html>
     <header>
+    <meta charset="utf-8"/>
    <link href="style.css" type="text/css" rel="stylesheet">
    <script>
 
 //the rules list
 let rules = [
-    'All cards even',
-    'All cards odd',
-    'Cards add up to 15',
-    'Cards add up to 7',
-    'Red cards add up to 10',
-    'All black cards',
-    'Black cards add up to 10',
-    'Cards sequence red\, black\, red\, black',
-    'Two numbers the same',
-    'All cards are Spades',
+    'all odd',
+    'sum of all cards is 10', 
+    'sum of cards is 2', 
+    'sum of ♠ is 11', 
+    'two non-adjacent piles are ♠', 
+    'alternating piles are ♣', 
+    'three ♠ piles', 
+    'two non-adjacent piles are ♦', 
+    'a straight of four (any order)', 
+    'no cards of the same colour or number', 
+    'two adjacent piles are ♠', 
+    'all cards are ♦ or ♠', 
+    'all even', 
+    'sum of all cards is 18', 
+    'all cards are ♥ or ♦', 
+    'two non-adjacent piles are ♣', 
+    'alternating piles are ♥', 
+    'two adjacent piles are ♦', 
+    'sum of ♣ is 6', 
+    'all cards are lower than 4', 
+    'three ♣ piles', 
+    'all cards are higher than 4', 
+    '♥ is half as much as ♦', 
+    'two adjacent piles are ♥', 
+    'three ♥ piles', 
+    'two adjacent piles are ♣', 
+    'sum of ♥ cards is 4', 
+    '♣ is half as much as ♠', 
+    'alternating piles are ♠', 
+    'sum of ♥ cards is 10', 
+    'no cards of the same colour', 
+    '♠ is half as much as ♥', 
+    'sum of all cards is 15', 
+    'sum of ♦ = sum of ♥', 
+    'alternating piles are ♦', 
+    '♦ is half as much as ♣', 
+    'sum of ♥ = sum of ♠', 
+    'sum of all cards is 20', 
+    'sum of ♣ is 7', 
+    'no cards of the same number', 
+    'two non adjacent piles are ♥', 
+    'all cards are ♣ or ♥', 
+    'sum of ♦ is 9', 
+    'all cards are ♣ or ♠', 
+    'a straight of three in a row', 
+    'three ♥ piles', 
+    'sum of ♠ = sum of ♣', 
+    'sum of ♣ = sum of ♦', 
+    'sum of ♦ is 3', 
+    'every other card is even',
+    
     ];
     
 // the code for picking 4 rules to play the game  
-let currentRule;
+
 shuffle();
 
 function shuffle() {
@@ -90,11 +132,22 @@ function ruleReplace (ruleNumber) {
             It displays the game <strong>Cahoots</strong>.
             <br>
             Mum wrote the code herself, <em>with advice from Dad</em>.
+            <br><br>
+            SCORES: 2-3 players (4 players)
             <br>
+            Beginner - score 15+ (12+)
+            <br>
+            Normal - score 18+ (15+)
+            <br>
+            Expert - score 21+ (18+)
+            <br>
+            Insane - score 24+ (21+)
         </p>
 <div class="solid special">
     <div id="score">
         Welcome to Mum's Cahoots
+        <br>
+        Requirements are 2 packs of playing cards using only the number cards 1-7.
         <br>
         Click on a rule when achieved
     </div>
